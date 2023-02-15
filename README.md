@@ -20,7 +20,7 @@ Strings:
     5. sqaureroot of odd numbers
     6. filter even numbers
     7. print x everytime a number is divideble with 6 and 5
-    
+
 
 Excersizes with exceptions
 
@@ -29,3 +29,7 @@ Excersizes with multiple types of topics, like:
 
     1. sort an array of strings based on 4th letter, if there a less than for letters remove word from array
 Use functional interface:
+
+## Theory
+
+## Notes
