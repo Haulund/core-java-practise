@@ -47,15 +47,13 @@ HashMap:
     
 Streams API:
     
-    1: Create a string that consists of the first letter of each word in the list of Strings provided. HINT: Use a StringBuilder to construct the result.
-    2: Remove the words that have odd length s from the list.
-        HINT: Use one of the new methods from JDK 8.
-    3: Replace every word in the list with its upper case equivalent.
-        HINT: Again, use one of the new methods from JDK 8.
-    4: Convert every key-value pair of the map into a string and append them all into a single string, in iteration order. 
-        HINT: Again, use a StringBuilder to construct the result String. Use one of the new JDK 8 methods for Map.
-    5: Create a new Thread that prints the numbers from the list.
-        HINT: This is a straightforward Lambda expression.
+    1: Create a string that consists of the first letter of each word in a list of Strings. 
+        HINT: Use a StringBuilder to construct the result.
+    2: Remove the words that have odd length from a list.
+    3: Replace every word in a list with its upper case equivalent.
+    4: Convert every key-value pair of a map into a string and append them all into a single string, in iteration order. 
+        HINT: Again, use a StringBuilder to construct the result String.
+    5: Create a new Thread that prints the numbers from a list.
 
 ## Theory
 
