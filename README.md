@@ -43,7 +43,7 @@ Date:
 HashMap:
 
     1. Copy all of the mappings from one HashMap to another.
-    2. Get the square all values in a HashMap<Integer, Integer> and get the sum.
+    2. Get the square of all values in a HashMap<Integer, Integer> and get the sum.
 
 ## Theory
 
