@@ -2,6 +2,7 @@ package rasmus.Collections;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 public class StringCollectionExercises {
@@ -10,7 +11,7 @@ public class StringCollectionExercises {
 
         sortStringArray(names);
         countLettersOfWords("Biblioteket er lukket i dag");
-        firstLetterToOccurrenceTwoTimesInWord("forloren");
+        firstLetterToOccurrenceTwoTimesInWord("Døende");
         sortBasedOnFourthLetterRemoveIfLess(names);
     }
 
@@ -23,17 +24,17 @@ public class StringCollectionExercises {
         System.out.println("Sorted String array by fourth character: " + Arrays.toString(namesLongerThanThree) + "\n");
     }
 
+    // 2. first occurrence of a letter used 2 times in a word
     private static void firstLetterToOccurrenceTwoTimesInWord(String word) {
-        int index = IntStream.range(0, word.length())
-                .filter(i -> IntStream.range(i, word.length())
-                        .filter(j -> word.charAt(i) == word.charAt(j))
+        OptionalInt index = IntStream.range(0, word.length())
+                .filter(i -> IntStream.range(i + 1, word.length())
+                        .filter(j -> word.toLowerCase().charAt(i) == word.toLowerCase().charAt(j))
                         .findFirst()
                         .isPresent()
                 )
-                .findAny()
-                .getAsInt();
+                .findAny();
 
-        System.out.println(word.charAt(index));
+        index.ifPresent(letter -> System.out.println("'" + word.toLowerCase().charAt(index.getAsInt()) + "' is the first letter to occurrence 2 times\n"));
     }
 
 
@@ -56,7 +57,7 @@ public class StringCollectionExercises {
 //            }
 //        }
 //
-//        lettersAndCount.entrySet().removeIf(e -> e.getValue() != 2);
+//        lettersAndCount.values().removeIf(e -> e != 2);
 //
 //        // Prints all
 ////        lettersAndCount.forEach((key, value) -> System.out.println("'" + key + "' occurrences " + value + " times"));
