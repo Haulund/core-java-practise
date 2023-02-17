@@ -57,7 +57,7 @@ public class StringCollectionExercises {
 //            }
 //        }
 //
-//        lettersAndCount.values().removeIf(e -> e != 2);
+//        lettersAndCount.values().removeIf(v -> v != 2);
 //
 //        // Prints all
 ////        lettersAndCount.forEach((key, value) -> System.out.println("'" + key + "' occurrences " + value + " times"));

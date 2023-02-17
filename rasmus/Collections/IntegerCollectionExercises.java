@@ -68,7 +68,7 @@ public class IntegerCollectionExercises {
             }
         }
 
-        numbersAndOccurrences.entrySet().removeIf(e -> e.getValue() < 4);
+        numbersAndOccurrences.values().removeIf(v -> v < 4);
 
         numbersAndOccurrences.forEach((key, value) -> System.out.println(key + " occurrences more than 3 times (" + value + " times)\n"));
     }
