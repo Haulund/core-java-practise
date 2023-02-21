@@ -33,3 +33,6 @@ Use functional interface:
 ## Theory
 
 ## Notes
+
+## Concepts to use
+1. Encapsulation
