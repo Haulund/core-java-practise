@@ -66,13 +66,14 @@ public class IntegerCollectionExercises {
     }
 
     private static void sortListAscending(List<Integer> numbersList) {
-        numbersList.stream().sorted().forEach(System.out::println);
-        System.out.println();
+        List<Integer> sortedList = numbersList.stream().sorted().toList();
+
+        System.out.println(sortedList + "\n");
     }
 
     private static void sortArrayAscending(int[] numbers) {
-        Arrays.sort(numbers);
+        int[] sortedArray = Arrays.stream(numbers).sorted().toArray();
 
-        System.out.println(Arrays.toString(numbers) + "\n");
+        System.out.println(Arrays.toString(sortedArray) + "\n");
     }
 }

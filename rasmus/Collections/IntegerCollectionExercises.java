@@ -82,7 +82,7 @@ public class IntegerCollectionExercises {
 
     // 1. sort an array of int ascending
     private static void sortNumbersAscending(int[] numbers) {
-        Arrays.sort(numbers);
-        System.out.println(Arrays.toString(numbers) +  "\n");
+        int[] sortedArray = Arrays.stream(numbers).sorted().toArray();
+        System.out.println(Arrays.toString(sortedArray) +  "\n");
     }
 }
