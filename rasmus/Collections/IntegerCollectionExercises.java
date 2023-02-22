@@ -36,14 +36,19 @@ public class IntegerCollectionExercises {
 
     // 6. filter even numbers
     private static void filterEvenNumbers(List<Integer> numbersList) {
-        List<Integer> evenNumbersList = numbersList.stream().filter(n -> n%2 == 0).toList();
+        List<Integer> evenNumbersList = numbersList.stream()
+                .filter(n -> n%2 == 0)
+                .toList();
 
         System.out.println(evenNumbersList + "\n");
     }
 
     // 5. sum of squared odd numbers in list
     private static void sumOfSquareOddNumbers(List<Integer> numbersList) {
-        Optional<Integer> optionalSum = numbersList.stream().filter(n -> n%2 != 0).map(n -> (int) Math.pow(n, 2)).reduce(Integer::sum);
+        Optional<Integer> optionalSum = numbersList.stream()
+                .filter(n -> n%2 != 0)
+                .map(n -> (int) Math.pow(n, 2))
+                .reduce(Integer::sum);
 
         optionalSum.ifPresent(sum -> System.out.println("The sum of squared odd numbers in list is: " + sum + "\n"));
     }
@@ -51,7 +56,9 @@ public class IntegerCollectionExercises {
     // 4. List of ints -> who has an adjacent value higher than itself.
     private static void adjacentValueHigherThanSelf(List<Integer> numbersList) {
         // TODO Read up in mapToObj
-        List<Integer> higherThanList = IntStream.range(0, numbersList.size() - 1).filter(i -> numbersList.get(i) < numbersList.get(i + 1)).mapToObj(numbersList::get).toList();
+        List<Integer> higherThanList = IntStream.range(0, numbersList.size() - 1)
+                .filter(i -> numbersList.get(i) < numbersList.get(i + 1))
+                .mapToObj(numbersList::get).toList();
 
         System.out.println(higherThanList + "\n");
     }
