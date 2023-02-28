@@ -1,9 +1,9 @@
 package rasmus.MandeepExercises;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 class Employee {
@@ -122,32 +122,113 @@ public class EmployeeExercises {
         employees.averageAgeByGender();
         employees.highestPayedEmployee();
         employees.nameOfEmployeesWhoJoinedAfter2015();
-        employees.numberOfEmployeesInEachDepartment();
+        employees.employeesPerDepartment();
+        employees.averageSalaryPerDepartment();
+        employees.youngestEmployeeInProductDevelopment();
+        employees.mostWorkingExperience();
+        employees.salesAndMarketingByGender();
+        employees.averageSalaryByGender();
+        employees.listOfEmployeeNamesByDepartment();
+        employees.averageAndTotalSalaryOfOrganization();
+        employees.youngerAndOlderThan25();
+        employees.oldestEmployee();
     }
 
-    private void numberOfEmployeesInEachDepartment() {
+    private void oldestEmployee() {
+        System.out.println("\nOldest employee in the organization:");
+        employeeList.stream()
+                .max(Comparator.comparing(Employee::getAge))
+                .ifPresent(e -> System.out.println(e.getName() + " is " + e.getAge() + " years old and works in " + e.getDepartment()));
+    }
 
+    private void youngerAndOlderThan25() {
+        System.out.println("\nEmployees younger or equal to 25:");
+        employeeList.stream().filter(e -> e.getAge() <= 25).forEach(System.out::println);
+        System.out.println("Employees older than 25:");
+        employeeList.stream().filter(e -> e.getAge() > 25).forEach(System.out::println);
+    }
+
+    private void averageAndTotalSalaryOfOrganization() {
+        System.out.println("\nAverage and total salary of organization:");
+        System.out.println("Average salary: " + employeeList.stream().collect(Collectors.averagingDouble(Employee::getSalary)));
+        System.out.println("Total salary: " + (Double) employeeList.stream().mapToDouble(Employee::getSalary).sum());
+    }
+
+    private void listOfEmployeeNamesByDepartment() {
+        System.out.println("\nEmployees names by department:");
+        employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment))
+                .forEach((k, v) -> System.out.println(k + ": \n" + v.stream().map(Employee::getName).toList()));
+    }
+
+    private void averageSalaryByGender() {
+        System.out.println("\nAverage salary by gender:");
+        employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)))
+                .forEach((k, v) -> System.out.println("Average " + k + " salary: " + v));
+    }
+
+    private void salesAndMarketingByGender() {
+        System.out.println("\nSales and Marketing by gender:");
+        employeeList.stream()
+                .filter(e -> e.getDepartment().equalsIgnoreCase("sales and marketing"))
+                .collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()))
+                .forEach((k, v) -> System.out.println(k + ": " + v));
+    }
+
+    private void mostWorkingExperience() {
+        System.out.println("\nEmployee with most working experience:");
+        employeeList.stream()
+                .max(Comparator.comparingInt(e -> LocalDate.now().getYear() - e.getYearOfJoining()))
+                .ifPresent(System.out::println);
+    }
+
+    private void youngestEmployeeInProductDevelopment() {
+        System.out.println("\nYoungest employee in Product Development:");
+        employeeList.stream()
+                .filter(e -> e.getDepartment().equalsIgnoreCase("product development"))
+                .min(Comparator.comparingInt(Employee::getAge))
+                .ifPresent(System.out::println);
+    }
+
+    private void averageSalaryPerDepartment() {
+        System.out.println("\nAverage salary per department:");
+        employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.averagingDouble(Employee::getSalary)))
+                .forEach((k, v) -> System.out.println("The average salary of " + k + " employees is: " + v));
+    }
+
+    private void employeesPerDepartment() {
+        System.out.println("\nEmployees per department:");
+        employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()))
+                .forEach((k, v) -> System.out.println(k + " has " + v + " employees"));
     }
 
     private void nameOfEmployeesWhoJoinedAfter2015() {
-        System.out.println("Employees who joined after 2015:");
-        employeeList.stream().filter(e -> e.getYearOfJoining() >= 2015).forEach(System.out::println);
+        System.out.println("\nEmployees who joined after 2015:");
+        employeeList.stream()
+                .filter(e -> e.getYearOfJoining() >= 2015)
+                .map(Employee::getName)
+                .forEach(System.out::println);
     }
 
     private void highestPayedEmployee() {
-        Optional<Employee> highestPayedEmployee = employeeList.stream()
-                .max(Comparator.comparingDouble(Employee::getSalary));
-        System.out.println("Highest payed employee:");
-        highestPayedEmployee.ifPresent(System.out::println);
+        System.out.println("\nHighest payed employee:");
+        employeeList.stream()
+                .max(Comparator.comparingDouble(Employee::getSalary))
+                .ifPresent(System.out::println);
     }
 
     private void averageAgeByGender() {
+        System.out.println("\nAverage age by gender:");
         employeeList.stream()
                 .collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getAge)))
                 .forEach((k, v) -> System.out.println("The average age of a " + k.toLowerCase() + " employee is " + v + " years"));
     }
 
     private void printAllDepartments() {
+        System.out.println("\nDepartments:");
         employeeList.stream()
                 .map(Employee::getDepartment)
                 .distinct()
@@ -155,6 +236,7 @@ public class EmployeeExercises {
     }
 
     private void employeesByGender() {
+        System.out.println("\nEmployees by gender:");
         employeeList.stream()
                 .collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()))
                 .forEach((k, v) -> System.out.println("There are " + v + " " + k + " employees"));
