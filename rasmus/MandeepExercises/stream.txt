@@ -1,0 +1,11 @@
+Yes, the Spring framework uses several design patterns to achieve its goals. Some of the key design patterns used in Spring are:
+Dependency Injection (DI) Pattern: This is one of the most fundamental design patterns used in Spring. It is used to decouple the application components by injecting the required dependencies from an external source. Spring achieves DI through its Inversion of Control (IoC) container, which is responsible for creating, managing, and wiring the objects in an application.
+Singleton Pattern: The Spring framework extensively uses the Singleton pattern to ensure that only one instance of a particular class is created and used throughout the application. This pattern helps in reducing the memory footprint and improving performance.
+Template Method Pattern: Spring uses this pattern to provide a common skeletal structure for the implementation of algorithms, with the specifics left to be implemented by the user.
+Factory Method Pattern: Spring also uses the Factory Method pattern to create objects. The framework has a set of factory classes that are responsible for creating and configuring objects as needed.
+Proxy Pattern: Spring uses the Proxy pattern to create proxy objects that are used to intercept and handle method calls made to the original object. This is used for implementing cross-cutting concerns like logging, security, and transactions.
+Observer Pattern: Spring uses this pattern to provide support for event handling. The framework has an event subsystem that allows the application to publish and subscribe to events.
+Decorator Pattern: Spring uses the Decorator pattern to dynamically add functionality to an object at runtime. This is used in Spring AOP (Aspect Oriented Programming) to add cross-cutting concerns like logging, security, and transactions to an existing object.
+Adapter Pattern: Spring uses this pattern to adapt an existing interface to a new one that is required by the application. This is used in the Spring MVC framework to adapt HTTP requests and responses to controller method signatures.
+Overall, the use of these design patterns in Spring helps to make the framework modular, extensible, and easy to maintain.
+Animal's
