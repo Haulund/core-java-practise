@@ -34,8 +34,10 @@ public class StreamAssignment {
 
         System.out.println(wordsAndCount);
         System.out.println("Top 10 used words:");
-        // Get EntrySet of Map
-        wordsAndCount.entrySet()
+
+        wordsAndCount
+                // Get EntrySet of wordsAndCount Map
+                .entrySet()
                 // Stream EntrySet
                 .stream()
                 // Sort entries by the Long values and reverse the order
