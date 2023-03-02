@@ -22,7 +22,7 @@ public class StreamAssignment {
      */
     private static void listTop10MostUsedWords() throws IOException {
         Map<String, Long> wordsAndCount =
-                // Read text file to a List of Strings
+                // Read text file from given path to a List of Strings
                 Files.readAllLines(Path.of("rasmus/MandeepExercises/stream.txt"))
                 // Stream List of Strings
                 .stream()
