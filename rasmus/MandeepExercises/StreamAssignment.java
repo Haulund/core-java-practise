@@ -21,7 +21,7 @@ public class StreamAssignment {
      * word, it should give the following output
      */
     private static void listTop10MostUsedWords() throws IOException {
-        // Takes a stream of strings and returns a stream of words with special characters removed and converted to lowercase.
+        // Take a stream of strings and return a stream of words with special characters removed and converted to lowercase.
         Map<String, Long> wordsAndCount =
                 // Read text file from given path to a List of Strings
                 Files.readAllLines(Path.of("rasmus/MandeepExercises/stream.txt"))
@@ -35,11 +35,11 @@ public class StreamAssignment {
         System.out.println("Top 10 used words:");
 
         wordsAndCount
-                // Get EntrySet of wordsAndCount Map
+                // Get EntrySet (key-value pairs) of wordsAndCount Map
                 .entrySet()
                 // Stream EntrySet
                 .stream()
-                // Sort entries by the Long values and reverse the order
+                // Sort entries by values and reverse the order
                 .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
                 // Limit the output to 10 entries
                 .limit(10)
