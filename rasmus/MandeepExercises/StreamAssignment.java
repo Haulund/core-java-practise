@@ -21,6 +21,7 @@ public class StreamAssignment {
      * word, it should give the following output
      */
     private static void listTop10MostUsedWords() throws IOException {
+        // Takes a stream of strings and returns a stream of words with special characters removed and converted to lowercase.
         Map<String, Long> wordsAndCount =
                 // Read text file from given path to a List of Strings
                 Files.readAllLines(Path.of("rasmus/MandeepExercises/stream.txt"))
