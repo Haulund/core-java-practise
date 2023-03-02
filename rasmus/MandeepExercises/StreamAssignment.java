@@ -31,8 +31,6 @@ public class StreamAssignment {
                 // Collect to a Map where the key is the String and value is the number of times the String is used
                 .collect(Collectors.groupingBy(String::valueOf, Collectors.counting()));
 
-
-        System.out.println(wordsAndCount);
         System.out.println("Top 10 used words:");
 
         wordsAndCount
